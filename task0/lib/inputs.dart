@@ -1,51 +1,69 @@
 import 'package:flutter/material.dart';
 
-class Inputs extends StatefulWidget
-{
-  const Inputs() : super();
+class Inputs extends StatefulWidget {
+  Inputs() : super();
 
   @override
-  Add createState() => Add();
+  _AddState createState() => _AddState();
 
-  TextEditingController input1 => TextEditingController();
-  TextEditingController input2 => TextEditingController();
+  TextEditingController input1 = TextEditingController();
+  TextEditingController input2 = TextEditingController();
 }
 
-class Add extends State<Inputs>{
+class _AddState extends State<Inputs> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           Text("Addition App"),
           TextField(
-            controller: input1,
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-            labelText: "Number 1")),
-          TextField(
-              controller: input2,
+              controller: widget.input1,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  labelText: "Number 2")),
+              decoration: InputDecoration(labelText: "Number 1")),
+          TextField(
+              controller: widget.input2,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(labelText: "Number 2")),
           ElevatedButton(
-              onPressed: (){
-                var result = int.parse(input1.text) + int.parse(input2.text);
+              onPressed: () {
+                int result = int.parse(widget.input1.text) +
+                    int.parse(widget.input2.text);
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Result)
-                );
-              }, child: const Text("Add"))
-
-        ]
-
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultPage(result)));
+              },
+              child: const Text("Add"))
+        ],
       ),
     );
   }
 }
 
-class input2 {
+class ResultPage extends StatelessWidget {
+  final int result;
+
+  ResultPage(this.result);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Result'),
+      ),
+      body: Center(
+        child: Text(
+          'The result is: $result',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
 }
 
-class input1 {
+void main() {
+  runApp(MaterialApp(
+    home: Inputs(),
+  ));
 }
