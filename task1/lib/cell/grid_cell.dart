@@ -29,8 +29,8 @@ class ProductCell extends StatelessWidget {
                     tag: "images${products.id}",
                     child: products.thumbnailUrl.isNotEmpty
                         ? FadeInImage.assetNetwork(
-                      placeholder: "images/no_image.png",
-                      image: products.thumbnailUrl.isNotEmpty ? products.thumbnailUrl : "images/no_image.png",
+                      placeholder: "assets/images/no_image.png", // Assuming the placeholder image is located in the assets/images directory
+                      image: products.thumbnailUrl.isNotEmpty ? products.thumbnailUrl : "assets/images/no_image.png",
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
