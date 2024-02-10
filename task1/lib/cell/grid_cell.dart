@@ -35,7 +35,6 @@ class ProductCell extends StatelessWidget {
                       height: 100,
                       fit: BoxFit.cover,
                     )
-
                         : Image.asset(
                       "images/no_image.png",
                       width: 100,

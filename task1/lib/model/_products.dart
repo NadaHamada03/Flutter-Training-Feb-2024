@@ -32,7 +32,7 @@ class _Products {
 
 class Products {
   int? id;
-  String? title;
+  String? title = 'No title';
   String? description;
   int? price;
   double? discountPercentage;
