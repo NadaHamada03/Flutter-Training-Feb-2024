@@ -1,0 +1,31 @@
+name: task2
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.15.4
+  firebase_storage: ^11.6.5
+  cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.0.0
+  fluttertoast: ^8.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/google_logo.png
+    - images/facebook_logo.png
+    - images/apple_logo.png
